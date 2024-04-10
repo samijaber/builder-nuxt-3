@@ -19,8 +19,8 @@
         @click="handleClick(index)"
       >
         <Blocks
-          :parentElementId="props.builderBlock.id && props.builderBlock "
-          :dataPath="`component.options.tabs.${index}.label`"
+          :parent="props.builderBlock.id"
+          :path="`component.options.tabs.${index}.label`"
           :blocks="item.label"
         />
       </span>
@@ -28,8 +28,8 @@
     <!-- Display blocks for the active tab's content -->
     <div v-if="activeTabContent">
       <Blocks
-        :parentElementId="props.builderBlock.id && props.builderBlock "
-        :dataPath="`component.options.tabs.${activeTab}.content`"
+        :parent="props.builderBlock.id"
+        :path="`component.options.tabs.${activeTab}.content`"
         :blocks="activeTabContent"
       />
     </div>

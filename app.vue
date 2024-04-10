@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { Content, fetchOneEntry, isPreviewing } from '@builder.io/sdk-vue';
+import { Content, fetchOneEntry, isPreviewing, getBuilderSearchParams } from '@builder.io/sdk-vue';
 
 import HelloWorldComponent from './components/HelloWorld.vue';
 import Tabs from './components/Tabs.vue';
@@ -198,7 +198,7 @@ const REGISTERED_COMPONENTS = [
 ];
 
 // TODO: enter your public API key
-const BUILDER_PUBLIC_API_KEY = '6641374915bc47c1b0bcff83bbe6e797'; // ggignore
+const BUILDER_PUBLIC_API_KEY = 'f1a790f8c3204b3b8c5c1795aeac4660'; // ggignore
 
 const route = useRoute();
 
@@ -210,6 +210,7 @@ const { data: content } = await useAsyncData('builderData', () =>
     userAttributes: {
       urlPath: route.path,
     },
+    options: getBuilderSearchParams(route.query),
   })
 );
 </script>
